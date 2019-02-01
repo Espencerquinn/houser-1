@@ -2,7 +2,7 @@ const initialState = {
     name: '',
     address: '',
     city: '',
-    state: '',
+    stateName: '',
     zipcode: 0,
     image_url: '',
     monthly_mortgage: 0,
@@ -12,7 +12,7 @@ const initialState = {
 const UPDATE_NAME = 'UPDATE_NAME';
 const UPDATE_ADDRESS = 'UPDATE_ADDRESS';
 const UPDATE_CITY = 'UPDATE_CITY';
-const UPDATE_STATE = 'UPDATE_STATE';
+const UPDATE_STATE_NAME = 'UPDATE_STATE_NAME';
 const UPDATE_ZIP = 'UPDATE_ZIP';
 const UPDATE_IMAGE = 'UPDATE_IMAGE';
 const UPDATE_MORTGAGE = 'UPDATE_MORTGAGE';
@@ -26,8 +26,8 @@ function reducer(state = initialState, action){
             return Object.assign({}, state, {address: action.payload});
         case UPDATE_CITY:
             return Object.assign({}, state, {city: action.payload});
-        case UPDATE_STATE:
-            return Object.assign({}, state, {state: action.payload});
+        case UPDATE_STATE_NAME:
+            return Object.assign({}, state, {stateName: action.payload});
         case UPDATE_ZIP:
             return Object.assign({}, state, {zipcode: action.payload});
         case UPDATE_IMAGE:
@@ -50,8 +50,8 @@ export function updateAddress(address){
 export function updateCity(city){
     return { type: UPDATE_CITY, payload: city }
 };
-export function updateState(state){
-    return { type: UPDATE_STATE, payload: state }
+export function updateStateName(stateName){
+    return { type: UPDATE_STATE_NAME, payload: stateName }
 };
 export function updateZip(zipcode){
     return { type: UPDATE_ZIP, payload: zipcode }

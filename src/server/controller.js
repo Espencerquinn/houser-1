@@ -7,8 +7,8 @@ module.exports = {
     },
     addHouse: (req, res) => {
         const db = req.app.get('db');
-        const {name, address, city, state, zipcode, image_url, monthly_mortgage, desired_rent} = req.body;
-        db.create_house([name, address, city, state, zipcode, image_url, monthly_mortgage, desired_rent])
+        const {name, address, city, stateName, zipcode, image_url, monthly_mortgage, desired_rent} = req.body;
+        db.create_house([name, address, city, stateName, zipcode, image_url, monthly_mortgage, desired_rent])
         .then(() => res.sendStatus(200))
         .catch((err) => res.status(500).send('Error Adding House'))
     },
