@@ -30,7 +30,6 @@ export default function House(props){
     return(
         <Card>
             <ContentWrapper>
-                {/* <img src={props.image_url} alt='house'/> */}
                 <CardImageWrapper>
                     <img src={props.image_url} alt='house' style={{height: '180px'}}/>
                 </CardImageWrapper>
