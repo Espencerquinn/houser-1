@@ -1,13 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function StepOne(){
     return(
         <div>
             Property Name
+            <input />
             Address
-            City
-            State
-            Zip
+            <input />
+            <div>
+                City
+                <input />
+                State
+                <input />
+                Zip
+                <input />
+            </div>
+            <Link to='/wizard/steptwo'><button>Next Step</button></Link>
         </div>
     )
 }

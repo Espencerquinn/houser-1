@@ -15,6 +15,7 @@ const AddButton = styled.button`
     justify-content: center;
     flex-wrap: wrap;
     font-size: 20px;
+    cursor: pointer;
 `
 
 const DashWrapper = styled.div`
@@ -38,6 +39,8 @@ export default class Dashboard extends Component{
         this.state = {
             houseList: []
         }
+
+        this.deleteHouse = this.deleteHouse.bind(this);
     }
     
     componentDidMount(){

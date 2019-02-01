@@ -45,7 +45,7 @@ export default function House(props){
                     {props.monthly_mortgage}
                     {props.desired_rent}
                 </ContentWrapper>
-                <img src={'/graphics/delete-button.png'} alt='delete' style={{alignSelf: 'baseline', padding: '5px'}} onClick={() => deleteHouseFn(id)}/>
+                <img src={'/graphics/delete-button.png'} alt='delete' style={{alignSelf: 'baseline', padding: '5px', cursor: 'pointer'}} onClick={() => deleteHouseFn(id)}/>
             </ContentWrapper>
         </Card>
     )
