@@ -6,7 +6,6 @@ const HeaderWrapper = styled.div`
     color: #ffffff;
     font-size: 35px;
     font-weight: bolder;
-    padding: 10px 5px;
     display: float;
     align-items: center;
     justify-content: center;

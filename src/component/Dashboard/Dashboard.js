@@ -24,6 +24,8 @@ const DashWrapper = styled.div`
 `
 
 const DashHeader = styled.div`
+    margin: 0;
+    padding 10px;
     width: 100%:
     display: flex;
     justify-content: space-between;
@@ -41,7 +43,9 @@ export default class Dashboard extends Component{
     componentDidMount(){
         axios.get('/api/houses')
         .then((res) => {
-            console.log(res.data)
+            this.setState({
+                houseList: res.data
+            })
         })
     }
 
