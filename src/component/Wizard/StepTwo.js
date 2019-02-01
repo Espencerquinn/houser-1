@@ -5,11 +5,11 @@ import { updateImage } from './../../ducks/reducer';
 
 class StepTwo extends Component{
     render(){
-        const { updateImage } = this.props;
+        const { updateImage, image_url } = this.props;
         return(
             <div>
                 Image URL
-                <input onChange={(e) => updateImage(e.target.value)}/>
+                <input onChange={(e) => updateImage(e.target.value)} value={image_url}/>
                 <div>
                     <Link to='/wizard/stepone'><button>Previous Step</button></Link>
                     <Link to='/wizard/stepthree'><button>Next Step</button></Link>

@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { resetState } from './../../ducks/reducer';
 
-export default function Wizard(props){
-    return(
-        <div>
+
+class Wizard extends Component{
+    render(){
+        const { resetState } = this.props;
+        return(
             <div>
-                <h1>Add New Listing</h1>
-                <Link to='/'><button>Cancel</button></Link>
+                <div>
+                    <h1>Add New Listing</h1>
+                    <Link to='/'><button onClick={() => resetState()}>Cancel</button></Link>
+                </div>
+                {this.props.children}
             </div>
-            {props.children}
-        </div>
-    )
+        )
+    }
 }
+
+function mapStateToProps(state){
+    return {
+        state
+    };
+}
+
+export default connect(mapStateToProps, {resetState})(Wizard)

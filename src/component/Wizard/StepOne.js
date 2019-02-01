@@ -6,20 +6,20 @@ import { updateName, updateAddress, updateCity, updateStateName, updateZip } fro
 class StepOne extends Component{
 
     render(){
-        const { updateName, updateAddress, updateCity, updateStateName, updateZip } = this.props;
+        const { updateName, updateAddress, updateCity, updateStateName, updateZip, name, address, city, stateName, zipcode } = this.props;
         return(
             <div>
                 Property Name
-                <input onChange={(e) => updateName(e.target.value)}/>
+                <input onChange={(e) => updateName(e.target.value)} value={name} />
                 Address
-                <input onChange={(e) => updateAddress(e.target.value)}/>
+                <input onChange={(e) => updateAddress(e.target.value)} value={address} />
                 <div>
                     City
-                    <input onChange={(e) => updateCity(e.target.value)}/>
+                    <input onChange={(e) => updateCity(e.target.value)} value={city} />
                     State
-                    <input onChange={(e) => updateStateName(e.target.value)}/>
+                    <input onChange={(e) => updateStateName(e.target.value)} value={stateName} />
                     Zip
-                    <input onChange={(e) => updateZip(e.target.value)}/>
+                    <input onChange={(e) => updateZip(e.target.value)} value={zipcode} />
                 </div>
                 <Link to='/wizard/steptwo'><button>Next Step</button></Link>
             </div>

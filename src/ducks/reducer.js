@@ -17,6 +17,7 @@ const UPDATE_ZIP = 'UPDATE_ZIP';
 const UPDATE_IMAGE = 'UPDATE_IMAGE';
 const UPDATE_MORTGAGE = 'UPDATE_MORTGAGE';
 const UPDATE_DES_RENT = 'UPDATE_DES_RENT';
+const RESET_STATE = 'RESET_STATE'
 
 function reducer(state = initialState, action){
     switch(action.type){
@@ -36,6 +37,8 @@ function reducer(state = initialState, action){
             return Object.assign({}, state, {monthly_mortgage: action.payload});
         case UPDATE_DES_RENT:
             return Object.assign({}, state, {desired_rent: action.payload});
+        case RESET_STATE:
+            return Object.assign({}, initialState)
         default:
             return state;
     }
@@ -65,6 +68,9 @@ export function updateMortgage(monthly_mortgage){
 export function updateDesRent(desired_rent){
     return { type: UPDATE_DES_RENT, payload: desired_rent }
 };
+export function resetState(){
+    return { type: RESET_STATE }
+}
 
 export default reducer;
 
