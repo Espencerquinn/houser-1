@@ -1,16 +1,21 @@
-//create table data
-//name, address, city, state, and zipcode
-// create table houses (
-//     house_id serial primary key,
-//     name varchar(50),
-//     address varchar(255),
-//     city varchar(50),
-//     state varchar(20),
-//     zipcode integer
-// )
-
-//alter table
-//image, monthly mortgage amount, and desired rent (hint: save the SQL command for this to show your mentor).
-//image URLs and Monthly Mortgage(rent recommendation is 1.25*Mortgage) for initial data table
-https://photos.zillowstatic.com/cc_ft_576/IS27yxywvorgih0000000000.jpg
-6605
+module.exports = {
+    getHouses: (req, res) => {
+        const db = req.app.get('db');
+        db.get_houses()
+        .then((inventory) => {res.status(200).send(inventory)})
+        .catch((err) => res.status(500).send('Error Getting All Houses'))
+    },
+    addHouse: (req, res) => {
+        const db = req.app.get('db');
+        const {name, address, city, state, zipcode, image_url, monthly_mortgage, desired_rent} = req.body;
+        db.create_house([name, address, city, state, zipcode, image_url, monthly_mortgage, desired_rent])
+        .then(() => res.sendStatus(200))
+        .catch((err) => res.status(500).send('Error Adding House'))
+    },
+    deleteHouse: (req, res) => {
+        const db = req.app.get('db');
+        db.delete_house([req.params.id])
+        .then((inventory) => {res.status(200).send(inventory)})
+        .catch((err) => {res.status(200).send('Error Deleting House')})
+    }
+}

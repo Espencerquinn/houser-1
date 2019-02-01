@@ -3,6 +3,7 @@ import House from './../House/House';
 import styled from 'styled-components';
 // import axios from 'axios';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const AddButton = styled.button`
     border: none;
@@ -36,6 +37,24 @@ export default class Dashboard extends Component{
             houseList: []
         }
     }
+    
+    componentDidMount(){
+        axios.get('/api/houses')
+        .then((res) => {
+            this.setState({
+                houseList: res.data
+            })
+        })
+    }
+
+    deleteHouse(id){
+        axios.delete(`/api/house/${id}`)
+        .then((res) => {
+            this.setState({
+                houseList: res.data
+            })
+        })
+    }
 
     render(){
         return(
@@ -48,7 +67,17 @@ export default class Dashboard extends Component{
                 {
                     this.state.houseList.map( house => {
                         <House 
-                        
+                            key={house.house_id}
+                            id={house.house_id}
+                            name={house.name}
+                            address={house.address}
+                            city={house.city}
+                            state={house.state}
+                            zipcode={house.zipcode}
+                            image_url={house.image_url}
+                            monthly_mortgage={house.monthly_mortgage}
+                            desired_rent={house.desired_rent}
+                            deleteHouseFn={this.deleteHouse}
                         />
                     })
                 }

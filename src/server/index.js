@@ -14,5 +14,9 @@ massive(process.env.CONNECTION_STRING)
 })
 .catch((err) => {console.log(err)});
 
+app.get('/api/houses', ctrl.getHouses)
+app.post('/api/house/', ctrl.addHouse)
+app.delete('/api/house/:id', ctrl.deleteHouse)
+
 const PORT = process.env.SERVER_PORT || 4000;
 app.listen(PORT, () => {console.log(`listening on PORT ${PORT}`)})
