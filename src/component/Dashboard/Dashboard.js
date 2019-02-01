@@ -9,13 +9,16 @@ const AddButton = styled.button`
     border: none;
     background: none;
     background-color: #8AEA92;
-    padding: 15px 25px;
+    padding: 5px 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     font-size: 20px;
     cursor: pointer;
+    width: 200px;
+    font-weight: bolder;
+    text-decoration: none;
 `
 
 const DashWrapper = styled.div`
@@ -30,6 +33,9 @@ const DashHeader = styled.div`
     width: 100%:
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid;
+    margin: 0px 15px;
+
 `
 
 export default class Dashboard extends Component{
@@ -69,7 +75,7 @@ export default class Dashboard extends Component{
                     <h1>Dashboard</h1>
                     <Link to='/wizard/stepone'><AddButton>Add New Property</AddButton></Link>
                 </DashHeader>
-                <h3>Home Listings</h3>
+                <h3 style={{marginLeft: '20px'}}>Home Listings</h3>
                 {
                     this.state.houseList.map( house => (
                         <House 
