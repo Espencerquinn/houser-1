@@ -41,9 +41,7 @@ export default class Dashboard extends Component{
     componentDidMount(){
         axios.get('/api/houses')
         .then((res) => {
-            this.setState({
-                houseList: res.data
-            })
+            console.log(res.data)
         })
     }
 
@@ -65,7 +63,7 @@ export default class Dashboard extends Component{
                 </DashHeader>
                 <h3>Home Listings</h3>
                 {
-                    this.state.houseList.map( house => {
+                    this.state.houseList.map( house => (
                         <House 
                             key={house.house_id}
                             id={house.house_id}
@@ -79,7 +77,7 @@ export default class Dashboard extends Component{
                             desired_rent={house.desired_rent}
                             deleteHouseFn={this.deleteHouse}
                         />
-                    })
+                    ))
                 }
             </DashWrapper>
         )

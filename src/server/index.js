@@ -1,5 +1,5 @@
 const express = require('express');
-require(dotenv).config();
+require('dotenv').config();
 const bodyParser = require('body-parser');
 const massive = require('massive');
 const ctrl = require('./controller');
