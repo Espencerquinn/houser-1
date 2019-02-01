@@ -44,12 +44,13 @@ export default class Dashboard extends Component{
     }
     
     componentDidMount(){
-        axios.get('/api/houses')
-        .then((res) => {
-            this.setState({
-                houseList: res.data
+        const rent = this.props.match.params.rent || ''
+        axios.get(`/api/houses/${rent}`)
+            .then((res) => {
+                this.setState({
+                    houseList: res.data
+                })
             })
-        })
     }
 
     deleteHouse(id){

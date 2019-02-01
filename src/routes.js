@@ -9,6 +9,7 @@ import StepThree from './component/Wizard/StepThree';
 export default (
     <Switch>
         <Route exact path='/' component={Dashboard} />
+        <Route exact path='/:rent' component={Dashboard} />
         <Route path='/wizard' render={() => (
             <Wizard>
                 <Route path='/wizard/stepone' component={StepOne} />
